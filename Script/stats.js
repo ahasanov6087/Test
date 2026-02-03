@@ -47,7 +47,7 @@ function loadStats() {
     let popularAge = '';
     
     // Define the correct order of age groups
-    const ageGroups = ['5-7', '8-10', '11-13', '15-17', '18+'];
+    const ageGroups = ['5-7', '8-10', '11-14', '15-17', '18+'];
     
     // Create table rows and calculate totals
     for (const ageKey of ageGroups) {
@@ -84,7 +84,7 @@ function loadStats() {
 function updateChart(stats) {
     const ctx = document.getElementById('statsChart').getContext('2d');
     
-    const ageGroups = ['5-7', '8-10', '11-13', '15-17', '18+'];
+    const ageGroups = ['5-7', '8-10', '11-14', '15-17', '18+'];
     const labels = ageGroups.map(key => stats[key]?.label || key + ' yaş');
     const data = ageGroups.map(key => stats[key]?.count || 0);
     const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'];
