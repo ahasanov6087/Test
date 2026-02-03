@@ -42,17 +42,15 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 continueBtn.addEventListener('click', function() {
     if (selectedAge) {
 
-        fetch("YOUR_URL", {
-        method: "POST",
-        body: JSON.stringify({ age: selectedAge })
-        })
+        fetch(`https://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec?age=${selectedAge}`)
         .then(() => {
-        window.location.href = 'index1.html';
+            window.location.href = 'index1.html';
         })
         .catch(err => console.error(err));
 
     }
 });
+
 
 
 // Hidden admin button functionality
