@@ -44,7 +44,7 @@ continueBtn.addEventListener('click', function() {
         console.log('Saving selection:', selectedAge);
         
         // Save selection to database
-        fetch("https://github.com/ahasanov6087/Testhttps://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec", {
         method: "POST",
         body: JSON.stringify({ age: selectedAge })
         })
