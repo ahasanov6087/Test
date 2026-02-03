@@ -41,7 +41,6 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 // Handle continue button click
 continueBtn.addEventListener('click', function() {
   fetch(`https://script.google.com/macros/s/AKfycbxToOv6l5-olMEH5DzA-64NLxe0IY3Fa2feUtybIBoeqR4x6ss60oonpVS02GglM9J5tg/exec?age=${selectedAge}`)
-console.log("Selected age:", selectedAge);
   .then(res => res.json())
 .then(data => {
     console.log(data);
@@ -54,7 +53,7 @@ console.log("Selected age:", selectedAge);
     console.error(err);
     alert("Serverə qoşula bilmədi.");
 });
-
+console.log("Selected age:", selectedAge);
 });
 
 
