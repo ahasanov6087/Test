@@ -44,7 +44,14 @@ continueBtn.addEventListener('click', function() {
         console.log('Saving selection:', selectedAge);
         
         // Save selection to database
-        const updatedStats = database.addSelection(selectedAge);
+        fetch("https://github.com/ahasanov6087/Testhttps://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec", {
+        method: "POST",
+        body: JSON.stringify({ age: selectedAge })
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error(err));
+
         console.log('Updated stats:', updatedStats);
         
         // Redirect to thank you page
