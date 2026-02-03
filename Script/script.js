@@ -41,23 +41,26 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 // Handle continue button click
 continueBtn.addEventListener('click', function() {
     if (selectedAge) {
-        console.log('Saving selection:', selectedAge);
-        
-        // Save selection to database
+
         fetch("https://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec", {
-        method: "POST",
-        body: JSON.stringify({ age: selectedAge })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ age: selectedAge })
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log("Sheet updated:", data);
+
+            // redirect AFTER success
+            window.location.href = 'index1.html';
+        })
         .catch(err => console.error(err));
 
-        console.log('Updated stats:', updatedStats);
-        
-        // Redirect to thank you page
-        window.location.href = 'index1.html';
     }
 });
+
 
 // Hidden admin button functionality
 hiddenAdminBtn.addEventListener('click', function(e) {
