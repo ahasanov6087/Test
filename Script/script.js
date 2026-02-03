@@ -40,29 +40,30 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 
 // Handle continue button click
 continueBtn.addEventListener('click', function() {
-    if (selectedAge) {
-        fetch('https://script.google.com/macros/s/YOUR_DEPLOYED_ID/exec', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ age: selectedAge })
-        })
-        .then(res => {
-            if (!res.ok) throw new Error('Network response not ok');
-            return res.json();
-        })
-        .then(data => {
-            console.log('Server response:', data); // For debugging
-            // Redirect only after server responds
-            window.location.href = 'index1.html';
-        })
-        .catch(err => {
-            console.error('Fetch error:', err);
-            alert('Xəta baş verdi, təkrar cəhd edin.'); // Optional user feedback
-        });
+  if (!selectedAge) return;
+
+  fetch('https://script.google.com/macros/s/YOUR_DEPLOYED_ID/exec', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ age: selectedAge })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('Server response:', data);
+    if (data.status === 'success') {
+      window.location.href = 'index1.html'; // redirect only if success
+    } else {
+      alert('Xəta baş verdi: ' + data.message);
     }
+  })
+  .catch(err => {
+    console.error('Fetch error:', err);
+    alert('Serverə qoşula bilmədi.');
+  });
 });
+
 
 
 
