@@ -42,19 +42,12 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 continueBtn.addEventListener('click', function() {
     if (selectedAge) {
 
-        fetch("https://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ age: selectedAge })
+        fetch("YOUR_URL", {
+        method: "POST",
+        body: JSON.stringify({ age: selectedAge })
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log("Sheet updated:", data);
-
-            // redirect AFTER success
-            window.location.href = 'index1.html';
+        .then(() => {
+        window.location.href = 'index1.html';
         })
         .catch(err => console.error(err));
 
