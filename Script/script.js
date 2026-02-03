@@ -42,7 +42,7 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 continueBtn.addEventListener('click', function() {
   if (!selectedAge) return;
 
-  fetch('https://script.google.com/macros/s/YOUR_DEPLOYED_ID/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyk6h8q6TtWkP-jnXzwGfRhJ_6xyuQYWomv3KXHIncWMShFAhwH04x-wedjOPEaOt14DA/exec', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
