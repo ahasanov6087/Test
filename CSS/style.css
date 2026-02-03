@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #4a4a9c;
+    margin-bottom: 30px;
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+.age-selector {
+    margin: 30px 0;
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: white;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.dropdown-toggle:hover, .dropdown-toggle.active {
+    border-color: #6e8efb;
+    box-shadow: 0 5px 15px rgba(110, 142, 251, 0.2);
+}
+
+.dropdown-toggle:after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #6e8efb;
+    transition: transform 0.3s;
+}
+
+.dropdown-toggle.active:after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 2px solid #6e8efb;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none;
+    max-height: 260px; /* Fixed height to ensure scrolling */
+    overflow-y: scroll; /* Changed from auto to scroll to always show scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #6e8efb #f0f0f0;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Custom scrollbar for Webkit browsers */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: #6e8efb;
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #5a7df9;
+}
+
+.dropdown-item {
+    padding: 16px 20px;
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9ff;
+    color: #6e8efb;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.btn {
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(to right, #6e8efb, #a777e3);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.btn.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.btn:hover {
+    box-shadow: 0 7px 20px rgba(110, 142, 251, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.selected-age {
+    color: #6e8efb;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 20px;
+    min-height: 27px;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Hidden admin access button */
+.admin-access {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+}
+
+#hiddenAdminBtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.1;
+    transition: all 0.3s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#hiddenAdminBtn:hover {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+#hiddenAdminBtn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .dropdown-toggle, .dropdown-item, .btn {
+        font-size: 16px;
+    }
+    
+    .dropdown-menu {
+        max-height: 220px; /* Smaller max-height for mobile */
+    }
+    
+    .dropdown-item {
+        padding: 14px 16px;
+        min-height: 48px;
+    }
+}

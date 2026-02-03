@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistika - Admin</title>
+    <link rel="stylesheet" href="css/stats.css">
+</head>
+<body>
+    <div class="container">
+        <div class="admin-panel">
+            <h1>Statistika Paneli</h1>
+            
+            <div class="password-section" id="passwordSection">
+                <p>Statistikaya baxmaq üçün admin parolunu daxil edin:</p>
+                <div class="password-input">
+                    <input type="password" id="passwordInput" placeholder="Admin parolu" value="admin123">
+                    <button id="loginBtn">Daxil ol</button>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="password-hint">
+                    <small>Demo parol: <code>admin123</code></small>
+                </div>
+            </div>
+            
+            <div class="stats-section" id="statsSection" style="display: none;">
+                <div class="stats-header">
+                    <h2>Yaş Seçimləri Statistikası</h2>
+                    <button id="refreshBtn">Yenilə</button>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stats-table" id="statsTable">
+                        <!-- Stats will be loaded here -->
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="summary">
+                    <div class="summary-item">
+                        <span class="summary-label">Ümumi İştirak:</span>
+                        <span class="summary-value" id="totalParticipants">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Ən Populyar:</span>
+                        <span class="summary-value" id="mostPopular">-</span>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button id="resetBtn" class="btn-danger">Statistikaları Sıfırla</button>
+                    <a href="index.html" class="btn-secondary">Əsas Səhifə</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./Script/database.js"></script>
+    <script src="./Script/stats.js"></script>
+</body>
+</html>
